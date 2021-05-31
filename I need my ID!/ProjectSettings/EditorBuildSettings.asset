@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Monee.unity
     guid: 852f7ceba044f59408e05f1001ee579f
+  - enabled: 1
+    path: Assets/Scenes/I-navigate.unity
+    guid: 8fb2cbdf9d44def4f9071f69d8835c3c
   m_configObjects: {}

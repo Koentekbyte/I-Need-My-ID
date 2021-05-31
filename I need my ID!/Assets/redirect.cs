@@ -13,6 +13,13 @@ public class redirect : MonoBehaviour
     {
         SceneManager.LoadScene("Monee");
     }
+    public void re_home()
+    {
+        SceneManager.LoadScene("Home");
+   }
     
-    
+    public void re_inavigate()
+    {
+        SceneManager.LoadScene("I-navigate");
+    }
 }
