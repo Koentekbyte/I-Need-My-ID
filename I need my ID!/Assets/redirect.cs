@@ -22,4 +22,12 @@ public class redirect : MonoBehaviour
     {
         SceneManager.LoadScene("I-navigate");
     }
+    public void re_safeboi()
+    {
+        SceneManager.LoadScene("Safeboi");
+    }
+    public void re_readme()
+    {
+        SceneManager.LoadScene("readme");
+    }
 }

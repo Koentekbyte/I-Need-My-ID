@@ -19,13 +19,16 @@ public class Moneecode : MonoBehaviour
     
     {   
         
-        if (inputfield_ad.text != "notascamma98")      
-        {
-                 t_noadress.active = true;
-        }
-        else if (int.Parse(inputfield_am.text) <= 0 )      
+        if (inputfield_ad.text != "notascammer98")      
         {        
+                 t_done.active = false;
+                 t_unvalid.active = false;
+                 t_noadress.active = true;
                  
+        }
+        else if (float.Parse(inputfield_am.text) <= 0 )      
+        {       t_done.active = false; 
+                t_noadress.active = false;
                 t_unvalid.active = true;
         }
         else
@@ -33,6 +36,9 @@ public class Moneecode : MonoBehaviour
             
             PlayerPrefs.SetInt("balance",PlayerPrefs.GetInt("balance")-int.Parse(inputfield_am.text));
             bal = PlayerPrefs.GetInt("balance");
+            t_done.active = false; 
+            t_noadress.active = false;
+            t_unvalid.active = false;
             t_done.active = true;
             
         }
