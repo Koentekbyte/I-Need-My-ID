@@ -26,11 +26,11 @@ public class Moneecode : MonoBehaviour
                  t_noadress.active = true;
                  
         }
-        //else if (float.Parse(inputfield_am.text) <= 0 )      
-        //{       t_done.active = false; 
-         //       t_noadress.active = false;
-           //     t_unvalid.active = true;
-        //}
+     else if (float.Parse(inputfield_am.text) <= 0 )      
+        {       t_done.active = false; 
+                t_noadress.active = false;
+                t_unvalid.active = true;
+        }
         else
         {   
             
@@ -50,7 +50,15 @@ public class Moneecode : MonoBehaviour
     
 
     void Start(){
+        if(PlayerPrefs.GetInt("reset_monee")==1){
+            PlayerPrefs.SetInt("balance",20000);
+            bal = PlayerPrefs.GetInt("balance");
+            PlayerPrefs.SetInt("money",0);
+
+        }
         bal = PlayerPrefs.GetInt("balance");
+
+
        }
     
     void Update(){

@@ -10,12 +10,14 @@ public class inavigate : MonoBehaviour
     public InputField searchbar;
     public Text safeboi;
     public InputField an,ap;
+    public int mw,ids;
     
-    public GameObject safeboi_inavigate,noscam_scamsite,CWC;
+    public GameObject safeboi_inavigate,noscam_scamsite,CWC,safeboicom;
     public void browse()
     {   
         if(searchbar.text == "Moni.com"){
         noscam_scamsite.active = false;
+        safeboicom.active = false;
         CWC.active = false; 
         Moni_scamsite.active = true;
         safeboi_inavigate.active = true;
@@ -26,10 +28,19 @@ public class inavigate : MonoBehaviour
 
          else if(searchbar.text == "noscamlottery.com"){
              Moni_scamsite.active = false;
+             safeboicom.active = false;
              CWC.active = false; 
              noscam_scamsite.active = true;
              safeboi_inavigate.active = true;
              safeboi.text = "PassWord: name = johnjohnson123 pass = anime123/Safeboi: Don't enter info on shady sites";
+         }
+        else if(searchbar.text == "safeboi.com"){
+             Moni_scamsite.active = false;
+             CWC.active = false; 
+             noscam_scamsite.active = false;
+             safeboicom.active = true;
+             safeboi_inavigate.active = false;
+             safeboi.text = "";
         
          }
          else if(searchbar.text == "CWC.org"){
@@ -44,6 +55,7 @@ public class inavigate : MonoBehaviour
         if(an.text == "johnjohnson123" && ap.text =="anime123")
         {
            PlayerPrefs.SetInt("idstolen",1);
+           ids = PlayerPrefs.GetInt("idstolen");
            
         }
      
@@ -60,7 +72,19 @@ public class inavigate : MonoBehaviour
 
     public void malware(){
         PlayerPrefs.SetInt("malware",1);
+        mw = PlayerPrefs.GetInt("malware");
     }
 
-    
+    void Start(){
+        if(PlayerPrefs.GetInt("reset_inavigate")==1){
+            PlayerPrefs.SetInt("malware",0);
+            mw = PlayerPrefs.GetInt("malware");
+            PlayerPrefs.SetInt("idstolen",0);
+            ids = PlayerPrefs.GetInt("idstolen");
+            PlayerPrefs.SetInt("reset_inavigate",0);
+        }
+        PlayerPrefs.SetInt("malware",mw);
+        PlayerPrefs.SetInt("idstolen",ids);
+        
+    }
 }

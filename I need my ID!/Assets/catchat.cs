@@ -15,15 +15,19 @@ public class catchat : MonoBehaviour
   public GameObject banhammer;
   public Scene inav;
   private NewBehaviourScript scene1;
-  void start(){
-    PlayerPrefs.SetInt("ubc",u);
-    PlayerPrefs.SetInt("mbc",m);
-    PlayerPrefs.SetInt("sbc",s);
-    PlayerPrefs.SetInt("us",us);
-    PlayerPrefs.SetInt("ms",ms);
-    PlayerPrefs.SetInt("ss",ss);
-    PlayerPrefs.SetInt("scene",x);
+  void Start(){
+    if(PlayerPrefs.GetInt("reset_catchat") == 1){ 
+    PlayerPrefs.SetInt("ubc",0);
+    PlayerPrefs.SetInt("mbc",0);
+    PlayerPrefs.SetInt("sbc",0);
+    PlayerPrefs.SetInt("mom",0);
+    PlayerPrefs.SetInt("unknown",0);
+    PlayerPrefs.SetInt("sammy",0);
+    PlayerPrefs.SetInt("reset_catchat",0);
     
+    
+    }
+    PlayerPrefs.SetInt("cc_click",1);
     
   }
   public void unknown(){
@@ -31,7 +35,7 @@ public class catchat : MonoBehaviour
       PlayerPrefs.SetInt("us",1);
       PlayerPrefs.SetInt("ms",0);
       PlayerPrefs.SetInt("ss",0);
-      if(PlayerPrefs.GetInt("ubc") == 0){  
+       
       block_outline.active = true;
       continue_outline.active = true;
 
@@ -47,8 +51,8 @@ public class catchat : MonoBehaviour
       kontinue.text = "Oh dear! here are my details!";
       Debug.Log("unbanned");
       banhammer.active = false;
-      }
-      else if(PlayerPrefs.GetInt("ubc") == 1){
+      
+       if(PlayerPrefs.GetInt("ubc") == 1){
         block_outline.active = false;
         continue_outline.active = false;
         sammy_pfp.active = false;
@@ -114,7 +118,7 @@ public class catchat : MonoBehaviour
 
 
     safeboi_catchat.active = true;
-    text.text = "SafeBoi: Don't enter this link. if something seems too good to be true then it pobably is!";
+    text.text = "SafeBoi: Don't enter this link. if something seems too good to be true then it probably is!";
     block.text = "block(sammy)";
     kontinue.text = "OK thanks I'll check it out!";
     PlayerPrefs.SetInt("ss",1);
@@ -152,13 +156,13 @@ public class catchat : MonoBehaviour
     
     else if(PlayerPrefs.GetInt("ms") == 1)
     {
-      PlayerPrefs.SetInt("mbc",0);
+      PlayerPrefs.SetInt("mbc",1);
       PlayerPrefs.SetInt("mom",0);
       mom();
     }
     else if(PlayerPrefs.GetInt("ss") == 1)
     {
-      PlayerPrefs.SetInt("sbc",0);
+      PlayerPrefs.SetInt("sbc",1);
       PlayerPrefs.SetInt("sammy",1);
       sammy();
     }
@@ -172,6 +176,7 @@ public class catchat : MonoBehaviour
     else if(PlayerPrefs.GetInt("ms") == 1)
     {
       PlayerPrefs.SetInt("mom",1);
+      Debug.Log("hi");
     }
     else if(PlayerPrefs.GetInt("ss") == 1)
     {
@@ -180,9 +185,9 @@ public class catchat : MonoBehaviour
       SceneManager.LoadScene("I-navigate");
       
     }
-  
+    
   }
- 
+   
     
   }
 

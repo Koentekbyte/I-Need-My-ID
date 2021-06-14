@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/readme.unity
     guid: 0ad76bf25b18274498c9cd793002ff84
+  - enabled: 1
+    path: Assets/Scenes/end.unity
+    guid: 2829a7ecc017a5248b46d52d4db09288
   m_configObjects: {}

@@ -13,7 +13,7 @@ public class home : MonoBehaviour
     public void voicemail()
     {
         vm.active = true;
-        txt.text = "No DO NOT go to 'noscamlottery.com' the form will undoubtedly steal your personal info or give money to the address 'notscammer98'-lottery companies don't ask for 20,000 anyway! You'll get nothing!";
+        txt.text = "No DO NOT go to 'noscamlottery.com' the form will undoubtedly steal your personal info or give money to the address 'notascammer98'-lottery companies don't ask for 20,000 anyway! You'll get nothing!";
         outline.active = true;
         Invoke("close",22);
         
