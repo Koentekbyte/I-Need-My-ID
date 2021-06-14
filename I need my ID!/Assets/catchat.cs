@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class catchat : MonoBehaviour
 {   
   public GameObject unknown_msg;
@@ -12,6 +13,8 @@ public class catchat : MonoBehaviour
   public Text text,block,kontinue;
   public int u,m,s,us,ms,ss,x;
   public GameObject banhammer;
+  public Scene inav;
+  private NewBehaviourScript scene1;
   void start(){
     PlayerPrefs.SetInt("ubc",u);
     PlayerPrefs.SetInt("mbc",m);
@@ -43,6 +46,7 @@ public class catchat : MonoBehaviour
       block.text = "block(unknown)";
       kontinue.text = "Oh dear! here are my details!";
       Debug.Log("unbanned");
+      banhammer.active = false;
       }
       else if(PlayerPrefs.GetInt("ubc") == 1){
         block_outline.active = false;
@@ -51,8 +55,8 @@ public class catchat : MonoBehaviour
         sammy_msg.active = false;
         mom_pfp.active = false;
         mom_msg.active = false;
-        block.text = "block(unknown)";
-        kontinue.text = "Oh dear! here are my details!";
+        block.text = "";
+        kontinue.text = "";
         block_outline.active = true;
         continue_outline.active = true;
         Debug.Log("banned");
@@ -79,6 +83,22 @@ public class catchat : MonoBehaviour
     PlayerPrefs.SetInt("ms",1);
     PlayerPrefs.SetInt("us",0);
     PlayerPrefs.SetInt("ss",0);
+    banhammer.active = false;
+  
+   if(PlayerPrefs.GetInt("mbc") == 1){
+        block_outline.active = false;
+        continue_outline.active = false;
+        sammy_pfp.active = false;
+        sammy_msg.active = false;
+        mom_pfp.active = false;
+        mom_msg.active = false;
+        block.text = "";
+        kontinue.text = "";
+        block_outline.active = true;
+        continue_outline.active = true;
+        Debug.Log("banned");
+        banhammer.active = true;
+      }
   }
 
   public void sammy(){
@@ -100,42 +120,75 @@ public class catchat : MonoBehaviour
     PlayerPrefs.SetInt("ss",1);
     PlayerPrefs.SetInt("us",0);
     PlayerPrefs.SetInt("ms",0);
-  
+    banhammer.active = false;
+    if(PlayerPrefs.GetInt("sbc") == 1){
+        block_outline.active = false;
+        continue_outline.active = false;
+        sammy_pfp.active = false;
+        sammy_msg.active = false;
+        mom_pfp.active = false;
+        mom_msg.active = false;
+        block.text = "";
+        kontinue.text = "";
+        block_outline.active = true;
+        continue_outline.active = true;
+        Debug.Log("banned");
+        banhammer.active = true;
+      }
   }
+    
+
+    
+  
+  
   public void blokk(){
     if(PlayerPrefs.GetInt("us") == 1)
     {
-      PlayerPrefs.SetInt("ubc",0);
+      PlayerPrefs.SetInt("ubc",1);
+      PlayerPrefs.SetInt("unknown",1);
+      unknown();
 
     }
     
     else if(PlayerPrefs.GetInt("ms") == 1)
     {
-      PlayerPrefs.SetInt("mbc",1);
+      PlayerPrefs.SetInt("mbc",0);
+      PlayerPrefs.SetInt("mom",0);
+      mom();
     }
     else if(PlayerPrefs.GetInt("ss") == 1)
     {
-      PlayerPrefs.SetInt("sbc",1);
+      PlayerPrefs.SetInt("sbc",0);
+      PlayerPrefs.SetInt("sammy",1);
+      sammy();
     }
      }
   public void conntinue(){
     if(PlayerPrefs.GetInt("us") == 1)
     {
-      PlayerPrefs.SetInt("ubc",2);
+      PlayerPrefs.SetInt("unknown",0);
     }
     
     else if(PlayerPrefs.GetInt("ms") == 1)
     {
-      PlayerPrefs.SetInt("mbc",2);
+      PlayerPrefs.SetInt("mom",1);
     }
     else if(PlayerPrefs.GetInt("ss") == 1)
     {
-      PlayerPrefs.SetInt("sbc",2);
+      
+      PlayerPrefs.SetInt("sammy",0);
+      SceneManager.LoadScene("I-navigate");
+      
     }
   
   }
+ 
+    
+  }
+
   
   
-  }   
+  
+     
   
 

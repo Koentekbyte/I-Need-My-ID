@@ -26,11 +26,11 @@ public class Moneecode : MonoBehaviour
                  t_noadress.active = true;
                  
         }
-        else if (float.Parse(inputfield_am.text) <= 0 )      
-        {       t_done.active = false; 
-                t_noadress.active = false;
-                t_unvalid.active = true;
-        }
+        //else if (float.Parse(inputfield_am.text) <= 0 )      
+        //{       t_done.active = false; 
+         //       t_noadress.active = false;
+           //     t_unvalid.active = true;
+        //}
         else
         {   
             
@@ -55,6 +55,13 @@ public class Moneecode : MonoBehaviour
     
     void Update(){
         txt.text = PlayerPrefs.GetInt("balance").ToString();
+        if(PlayerPrefs.GetInt("balance") < 20000){
+            PlayerPrefs.SetInt("money",0);
+        }
+        else{
+            PlayerPrefs.SetInt("money",1);
+        }
+        
     }
 }
 
